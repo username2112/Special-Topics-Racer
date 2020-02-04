@@ -1,0 +1,3 @@
+[submodule "LibraryForLWJGL"]
+	path = LibraryForLWJGL
+	url = https://github.com/OroArmor/LibraryForLWJGL.git
