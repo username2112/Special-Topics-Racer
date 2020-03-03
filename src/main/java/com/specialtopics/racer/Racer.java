@@ -1,11 +1,27 @@
 package com.specialtopics.racer;
 
 import com.oroarmor.core.game.Game;
-import com.oroarmor.core.game.GameLogic;
-import com.oroarmor.core.game.GameRenderer;
+import com.specialtopics.racer.event.gameclose.GameCloseEvent;
+import com.specialtopics.racer.event.gameclose.GameCloseEventListener;
 
-public class Racer extends Game {
-	public Racer(GameRenderer gameGraphics, GameLogic gameLogic) {
+public class Racer extends Game<RacerInfo> implements GameCloseEventListener {
+	public Racer(RacerRenderer gameGraphics, RacerLogic gameLogic) {
 		super(gameGraphics, gameLogic);
+		this.addToGameCloseListeners();
+	}
+
+	@Override
+	public boolean isActive() {
+		return true;
+	}
+
+	@Override
+	public void setActive(boolean active) {
+	}
+
+	@Override
+	public void processGameCloseEvent(GameCloseEvent event) {
+		this.getLogicThread().setActive(false);
+		this.getRenderThread().setActive(false);
 	}
 }

@@ -1,38 +1,34 @@
 package com.specialtopics.racer;
 
-import com.oroarmor.core.game.GameInfo;
 import com.oroarmor.core.game.GameLogic;
 
-public class RacerLogic implements GameLogic {
+public class RacerLogic implements GameLogic<RacerInfo> {
 
-	private GameInfo info;
+	private RacerInfo info;
 
-	private RacerLogic(RacerInfo info) {
+	public RacerLogic(RacerInfo info) {
 		this.info = info;
 	}
 
 	@Override
 	public void initialize() {
-
 	}
 
 	@Override
 	public void tick(float updateTime) {
-
 	}
 
 	@Override
 	public void deinitialize() {
-
 	}
 
 	@Override
-	public GameInfo getGameInfo() {
+	public RacerInfo getGameInfo() {
 		return info;
 	}
 
 	@Override
-	public void setGameInfo(GameInfo info) {
+	public void setGameInfo(RacerInfo info) {
 		this.info = info;
 	}
 
