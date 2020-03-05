@@ -53,6 +53,7 @@ public abstract class Level extends Entity {
 
 	public void prepareShader(Camera camera, RacerDisplay display, Sunlight sun) {
 		Matrix4f MV = display.getPerspectiveViewModel(70).mul(camera.getModelMatrix());
+		this.setModelMatrix();
 		Matrix4f P = this.getModelMatrix();
 
 		this.getShader().setUniformMat4f("u_MV", MV);

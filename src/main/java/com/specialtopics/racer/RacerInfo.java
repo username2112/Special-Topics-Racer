@@ -1,5 +1,8 @@
 package com.specialtopics.racer;
 
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+
 import com.oroarmor.core.game.Camera;
 import com.oroarmor.core.game.GameInfo;
 import com.oroarmor.core.game.light.Sunlight;
@@ -8,6 +11,12 @@ import com.specialtopics.racer.graphics.RacerDisplay;
 import com.specialtopics.racer.level.Level;
 
 public class RacerInfo implements GameInfo {
+
+	public RacerInfo() {
+		camera = new Camera(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
+		sun = new Sunlight(new Vector3f(0, -1, 0), new Vector4f(1, 1, 1, 1));
+	}
+
 	private RacerDisplay racerDisplay;
 
 	public synchronized RacerDisplay getRacerDisplay() {

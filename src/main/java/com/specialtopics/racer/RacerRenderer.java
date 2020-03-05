@@ -1,12 +1,7 @@
 package com.specialtopics.racer;
 
-import org.joml.Vector3f;
-import org.joml.Vector4f;
-
 import com.oroarmor.core.Destructor;
-import com.oroarmor.core.game.Camera;
 import com.oroarmor.core.game.GameRenderer;
-import com.oroarmor.core.game.light.Sunlight;
 import com.oroarmor.core.opengl.Renderer;
 import com.specialtopics.racer.event.gameclose.GameCloseEvent;
 import com.specialtopics.racer.event.gameclose.GameCloseEventListener;
@@ -24,15 +19,9 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 
 	@Override
 	public void initialize() {
-		Camera camera = new Camera(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
-		info.setCamera(camera);
-
-		Sunlight sun = new Sunlight(new Vector3f(0, -1, 0), new Vector4f(1, 1, 1, 1));
-
-		info.setSun(sun);
-
 		RacerDisplay racerDisplay = new RacerDisplay();
 		racerDisplay.setClearColor(0, 0, 0, 1);
+		racerDisplay.enableTransparency();
 		info.setRacerDisplay(racerDisplay);
 
 		Renderer renderer = new Renderer();
@@ -45,10 +34,11 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 	@Override
 	public void render(float renderTime) {
 		info.getRacerDisplay().clear();
-		info.getRacerDisplay().render();
 
 		info.getCurrentLevel().prepareShader(info.getCamera(), info.getRacerDisplay(), info.getSun());
 		info.getCurrentLevel().render(info.getRacerRenderer());
+
+		info.getRacerDisplay().render();
 
 		if (info.getRacerDisplay().shouldClose())
 			GameCloseEventListener.processAllGameCloseEvent(new GameCloseEvent());
