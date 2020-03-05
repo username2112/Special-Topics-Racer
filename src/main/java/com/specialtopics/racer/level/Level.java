@@ -47,20 +47,21 @@ public abstract class Level extends Entity {
 		this.levelTexture = levelTexture;
 	}
 
-	public void render(Renderer renderer) {
+	public void render(Renderer renderer, Camera camera, RacerDisplay display, Sunlight sun) {
+		this.prepareShader(camera, display, sun);
 		levelMesh.render(renderer, getShader());
 	}
 
-	public void prepareShader(Camera camera, RacerDisplay display, Sunlight sun) {
+	private void prepareShader(Camera camera, RacerDisplay display, Sunlight sun) {
 		Matrix4f MV = display.getPerspectiveViewModel(70).mul(camera.getModelMatrix());
 		this.setModelMatrix();
 		Matrix4f P = this.getModelMatrix();
 
 		this.getShader().setUniformMat4f("u_MV", MV);
 		this.getShader().setUniformMat4f("u_P", P);
-		this.getShader().setSun(sun);
+//		this.getShader().setSun(sun);
 
-		this.getShader().setMainTexture(levelTexture);
+//		this.getShader().setMainTexture(levelTexture);
 	}
 
 }

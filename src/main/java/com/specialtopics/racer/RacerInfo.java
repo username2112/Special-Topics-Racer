@@ -12,54 +12,56 @@ import com.specialtopics.racer.level.Level;
 
 public class RacerInfo implements GameInfo {
 
+	private RacerDisplay racerDisplay;
+	private Renderer racerRenderer;
+
+	private Level currentLevel;
+
+	private Camera camera;
+	private Sunlight sun;
+
+	/**
+	 * Initialize objects that do *not* require a GLFW/OpenGL/OpenAL context here.
+	 */
 	public RacerInfo() {
 		camera = new Camera(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
 		sun = new Sunlight(new Vector3f(0, -1, 0), new Vector4f(1, 1, 1, 1));
 	}
 
-	private RacerDisplay racerDisplay;
-
-	public synchronized RacerDisplay getRacerDisplay() {
-		return racerDisplay;
+	public synchronized Camera getCamera() {
+		return camera;
 	}
-
-	public synchronized void setRacerDisplay(RacerDisplay racerDisplay) {
-		this.racerDisplay = racerDisplay;
-	}
-
-	private Renderer racerRenderer;
-
-	public synchronized Renderer getRacerRenderer() {
-		return racerRenderer;
-	}
-
-	public synchronized void setRacerRenderer(Renderer racerRenderer) {
-		this.racerRenderer = racerRenderer;
-	}
-
-	private Level currentLevel;
 
 	public synchronized Level getCurrentLevel() {
 		return currentLevel;
 	}
 
-	public synchronized void setCurrentLevel(Level currentLevel) {
-		this.currentLevel = currentLevel;
+	public synchronized RacerDisplay getRacerDisplay() {
+		return racerDisplay;
 	}
 
-	private Camera camera;
-	private Sunlight sun;
+	public synchronized Renderer getRacerRenderer() {
+		return racerRenderer;
+	}
 
-	public synchronized Camera getCamera() {
-		return camera;
+	public synchronized Sunlight getSun() {
+		return sun;
 	}
 
 	public synchronized void setCamera(Camera camera) {
 		this.camera = camera;
 	}
 
-	public synchronized Sunlight getSun() {
-		return sun;
+	public synchronized void setCurrentLevel(Level currentLevel) {
+		this.currentLevel = currentLevel;
+	}
+
+	public synchronized void setRacerDisplay(RacerDisplay racerDisplay) {
+		this.racerDisplay = racerDisplay;
+	}
+
+	public synchronized void setRacerRenderer(Renderer racerRenderer) {
+		this.racerRenderer = racerRenderer;
 	}
 
 	public synchronized void setSun(Sunlight sun) {
