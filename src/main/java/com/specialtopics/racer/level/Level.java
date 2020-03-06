@@ -59,9 +59,9 @@ public abstract class Level extends Entity {
 
 		this.getShader().setUniformMat4f("u_MV", MV);
 		this.getShader().setUniformMat4f("u_P", P);
-//		this.getShader().setSun(sun);
+		this.getShader().setSun(sun);
 
-//		this.getShader().setMainTexture(levelTexture);
+		this.getShader().setMainTexture(levelTexture);
 	}
 
 }

@@ -17,6 +17,7 @@ public class Racer extends Game<RacerInfo> implements GameCloseEventListener {
 
 	@Override
 	public void setActive(boolean active) {
+		return; // cannot be set inactive
 	}
 
 	@Override

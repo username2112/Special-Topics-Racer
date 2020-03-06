@@ -13,9 +13,8 @@ public class Level1 extends Level {
 	public Level1() {
 		super(OBJLoader.loadOBJ(ResourceLoader
 				.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level1/track.obj"))),
-				new Texture("/com/specialtopics/racer/level/level1/Track.png"), new LevelShader());
+				new Texture("./assets/com/specialtopics/racer/level/level1/Track.png"), new LevelShader());
 
-//		this.scaleVector = new Vector3f(1000, 1, 1000);
 		this.positionVector = new Vector3f(0, -100, 0);
 		this.setModelMatrix();
 	}

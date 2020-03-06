@@ -8,10 +8,12 @@ import com.oroarmor.util.ResourceLoader;
 public class LevelShader extends Shader {
 
 	public LevelShader() {
-		super(ResourceLoader
-				.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level_vertex.vs")),
+		super(//
+				ResourceLoader
+						.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level_vertex.vs")),
 				ResourceLoader
 						.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level_fragment.fs")));
+		this.compile();
 	}
 
 	public void setSun(Sunlight sun) {
@@ -19,7 +21,8 @@ public class LevelShader extends Shader {
 	}
 
 	public void setMainTexture(Texture texture) {
-		texture.bind(0);
-		this.setUniform1i("u_Texture", 0);
+		texture.bind(1);
+		this.bind();
+		this.setUniform1i("u_Texture", 1);
 	}
 }
