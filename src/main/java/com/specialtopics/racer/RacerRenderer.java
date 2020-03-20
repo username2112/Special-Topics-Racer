@@ -1,6 +1,5 @@
 package com.specialtopics.racer;
 
-import com.oroarmor.core.Destructor;
 import com.oroarmor.core.game.GameRenderer;
 import com.oroarmor.core.opengl.Renderer;
 import com.specialtopics.racer.event.gameclose.GameCloseEvent;
@@ -47,7 +46,6 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 
 	@Override
 	public void deinitialize() {
-		Destructor.destroyAll();
 		info.getRacerDisplay().end();
 	}
 
