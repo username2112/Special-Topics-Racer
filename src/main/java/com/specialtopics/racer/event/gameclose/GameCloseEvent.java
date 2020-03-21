@@ -1,7 +1,7 @@
 package com.specialtopics.racer.event.gameclose;
 
-import com.oroarmor.core.glfw.event.Event;
-import com.oroarmor.core.glfw.event.EventType;
+import com.oroarmor.core.game.event.Event;
+import com.oroarmor.core.game.event.EventType;
 
 public class GameCloseEvent implements Event {
 

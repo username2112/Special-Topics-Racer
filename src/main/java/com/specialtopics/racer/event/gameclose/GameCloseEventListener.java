@@ -2,7 +2,7 @@ package com.specialtopics.racer.event.gameclose;
 
 import java.util.ArrayList;
 
-import com.oroarmor.core.glfw.event.Active;
+import com.oroarmor.core.game.event.Active;
 
 public interface GameCloseEventListener extends Active {
 	public static ArrayList<GameCloseEventListener> gameCloseListeners = new ArrayList<GameCloseEventListener>();
