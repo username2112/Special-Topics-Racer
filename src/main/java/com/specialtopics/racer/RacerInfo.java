@@ -3,7 +3,7 @@ package com.specialtopics.racer;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
-import com.oroarmor.core.game.Camera;
+import com.oroarmor.core.game.entity.Camera;
 import com.oroarmor.core.game.GameInfo;
 import com.oroarmor.core.game.light.Sunlight;
 import com.oroarmor.core.opengl.Renderer;

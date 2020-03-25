@@ -3,8 +3,8 @@ package com.specialtopics.racer.level;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;
 
-import com.oroarmor.core.game.Camera;
-import com.oroarmor.core.game.Entity;
+import com.oroarmor.core.game.entity.Camera;
+import com.oroarmor.core.game.entity.Entity;
 import com.oroarmor.core.game.light.Sunlight;
 import com.oroarmor.core.opengl.Mesh;
 import com.oroarmor.core.opengl.Renderer;
