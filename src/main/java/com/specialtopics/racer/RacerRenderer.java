@@ -31,6 +31,7 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 
 		Level currentLevel = new Level1();
 		info.setCurrentLevel(currentLevel);
+
 	}
 
 	@Override
