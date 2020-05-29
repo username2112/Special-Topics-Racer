@@ -13,7 +13,7 @@ public class Car1 extends Car {
 		super(position, rotation, scale, weight,
 				OBJLoader.loadOBJ(ResourceLoader
 						.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/car/car1/car1.obj"))),
-				new CarShader(), carColor, new Texture("./assets/com/specialtopics/racer/car/car1/car1.obj"));
+				new CarShader(), carColor, new Texture("./assets/com/specialtopics/racer/car/car1/car1.png"));
 	}
 
 }
