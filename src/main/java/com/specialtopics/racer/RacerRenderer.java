@@ -1,7 +1,12 @@
 package com.specialtopics.racer;
 
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+
 import com.oroarmor.core.game.GameRenderer;
 import com.oroarmor.core.opengl.Renderer;
+import com.specialtopics.racer.car.Car;
+import com.specialtopics.racer.car.Car1;
 import com.specialtopics.racer.event.gameclose.GameCloseEvent;
 import com.specialtopics.racer.event.gameclose.GameCloseEventListener;
 import com.specialtopics.racer.graphics.RacerDisplay;
@@ -32,6 +37,9 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 		Level currentLevel = new Level1();
 		info.setCurrentLevel(currentLevel);
 
+		Car playerCar = new Car1(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1), 10,
+				new Vector4f(1, 0, 0, 1));
+		info.setPlayerCar(playerCar);
 	}
 
 	@Override
@@ -39,6 +47,8 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 		info.getRacerDisplay().clear();
 
 		info.getCurrentLevel().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
+
+		info.getPlayerCar().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
 
 		info.getRacerDisplay().render();
 		if (info.getRacerDisplay().shouldClose())

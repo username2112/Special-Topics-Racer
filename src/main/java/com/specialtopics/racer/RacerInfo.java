@@ -7,6 +7,7 @@ import com.oroarmor.core.game.GameInfo;
 import com.oroarmor.core.game.entity.Camera;
 import com.oroarmor.core.game.light.Sunlight;
 import com.oroarmor.core.opengl.Renderer;
+import com.specialtopics.racer.car.Car;
 import com.specialtopics.racer.graphics.RacerDisplay;
 import com.specialtopics.racer.level.Level;
 
@@ -19,6 +20,8 @@ public class RacerInfo implements GameInfo {
 
 	private Camera camera;
 	private Sunlight sun;
+
+	private Car playerCar;
 
 	/**
 	 * Initialize objects that do *not* require a GLFW/OpenGL/OpenAL context here.
@@ -66,6 +69,14 @@ public class RacerInfo implements GameInfo {
 
 	public synchronized void setSun(Sunlight sun) {
 		this.sun = sun;
+	}
+
+	public synchronized Car getPlayerCar() {
+		return playerCar;
+	}
+
+	public synchronized void setPlayerCar(Car playerCar) {
+		this.playerCar = playerCar;
 	}
 
 }
