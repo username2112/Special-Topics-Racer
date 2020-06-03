@@ -5,6 +5,7 @@ import org.joml.Vector4f;
 
 import com.oroarmor.core.game.GameInfo;
 import com.oroarmor.core.game.entity.Camera;
+import com.oroarmor.core.game.entity.CameraViewController;
 import com.oroarmor.core.game.light.Sunlight;
 import com.oroarmor.core.opengl.Renderer;
 import com.specialtopics.racer.car.Car;
@@ -23,12 +24,16 @@ public class RacerInfo implements GameInfo {
 
 	private Car playerCar;
 
+	private long startTime;
+
 	/**
 	 * Initialize objects that do *not* require a GLFW/OpenGL/OpenAL context here.
 	 */
 	public RacerInfo() {
 		camera = new Camera(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
+		camera.setViewController(new CameraViewController());
 		sun = new Sunlight(new Vector3f(0, -1, 0), new Vector4f(1, 1, 1, 1));
+		setStartTime(0);
 	}
 
 	public synchronized Camera getCamera() {
@@ -77,6 +82,18 @@ public class RacerInfo implements GameInfo {
 
 	public synchronized void setPlayerCar(Car playerCar) {
 		this.playerCar = playerCar;
+	}
+
+	public synchronized long getStartTime() {
+		return startTime;
+	}
+
+	public synchronized void setStartTime(long startTime) {
+		this.startTime = startTime;
+	}
+
+	public synchronized void initalizeTimer() {
+		startTime = System.currentTimeMillis();
 	}
 
 }

@@ -3,6 +3,7 @@ package com.specialtopics.racer.car;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
+import com.oroarmor.core.game.entity.Camera;
 import com.oroarmor.core.opengl.Texture;
 import com.oroarmor.util.OBJLoader;
 import com.oroarmor.util.ResourceLoader;
@@ -14,6 +15,11 @@ public class Car2 extends Car {
 				OBJLoader.loadOBJ(ResourceLoader
 						.loadFile(Class.class.getResourceAsStream("com/specialtopics/racer/car/car2/car2.obj"))),
 				new CarShader(), carColor, new Texture("./assets/com/specialtopics/racer/car/car2/car2.png"));
+	}
+
+	@Override
+	public void setCameraLocal(Camera camera) {
+
 	}
 
 }

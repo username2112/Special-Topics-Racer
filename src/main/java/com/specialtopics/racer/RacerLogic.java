@@ -1,7 +1,5 @@
 package com.specialtopics.racer;
 
-import org.joml.Vector3f;
-
 import com.oroarmor.core.game.GameLogic;
 
 public class RacerLogic implements GameLogic<RacerInfo> {
@@ -14,13 +12,18 @@ public class RacerLogic implements GameLogic<RacerInfo> {
 
 	@Override
 	public void initialize() {
+
+		while (info.getPlayerCar() == null) {
+			;
+		}
 	}
 
 	@Override
 	public void tick(float updateTime) {
 		info.getCamera().tick(updateTime);
-		info.getCamera().setMaxSpeed(1);
-		info.getCamera().addAcceleration(new Vector3f(0, /*-9.81f*/ 0, 0));
+
+		info.getPlayerCar().tick(updateTime);
+		info.getPlayerCar().setCameraLocal(info.getCamera());
 	}
 
 	@Override

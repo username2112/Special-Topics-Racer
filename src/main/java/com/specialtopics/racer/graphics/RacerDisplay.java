@@ -19,6 +19,7 @@ public class RacerDisplay extends Display {
 	public RacerDisplay() {
 		super(1280, 720, "Space Racer");
 		this.addToListeners();
+		setCullFace(CullFace.FRONT);
 	}
 
 	@Override

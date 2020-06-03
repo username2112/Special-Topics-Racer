@@ -1,12 +1,18 @@
 package com.specialtopics.racer.car;
 
 import org.joml.Matrix4f;
+import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.joml.Vector4f;
 
 import com.oroarmor.core.game.entity.Camera;
 import com.oroarmor.core.game.entity.physics.PhysicsEntity;
 import com.oroarmor.core.game.light.Sunlight;
+import com.oroarmor.core.glfw.event.key.Key;
+import com.oroarmor.core.glfw.event.key.KeyEventListener;
+import com.oroarmor.core.glfw.event.key.hold.KeyHoldEvent;
+import com.oroarmor.core.glfw.event.key.press.KeyPressEvent;
+import com.oroarmor.core.glfw.event.key.release.KeyReleaseEvent;
 import com.oroarmor.core.opengl.Mesh;
 import com.oroarmor.core.opengl.Renderer;
 import com.oroarmor.core.opengl.Texture;
@@ -14,7 +20,7 @@ import com.specialtopics.racer.graphics.RacerDisplay;
 
 import javafx.scene.paint.Color;
 
-public abstract class Car extends PhysicsEntity {
+public abstract class Car extends PhysicsEntity implements KeyEventListener {
 
 	private Mesh carMesh;
 	private CarShader shader;
@@ -28,6 +34,8 @@ public abstract class Car extends PhysicsEntity {
 		this.shader = shader;
 		this.carColor = carColor;
 		this.carTexture = carTexture;
+
+		this.addToKeyListeners();
 	}
 
 	double val = 0;
@@ -37,16 +45,12 @@ public abstract class Car extends PhysicsEntity {
 		carColor = new Vector4f((float) Color.hsb(val, 1, 1).getRed(), (float) Color.hsb(val, 1, 1).getGreen(),
 				(float) Color.hsb(val, 1, 1).getBlue(), 1);
 
-		val += 0.5;
+		val += 0.005;
 
 		rotationVector = rotationVector.rotateY((float) val / 10);
-
-		addAcceleration(new Vector3f(0, -1, 0));
 	}
 
 	public void render(final Renderer renderer, final Camera camera, final RacerDisplay display, final Sunlight sun) {
-		update(0);
-
 		prepareShader(camera, display, sun, carColor);
 		carMesh.render(renderer, shader);
 	}
@@ -85,9 +89,9 @@ public abstract class Car extends PhysicsEntity {
 
 	public void prepareShader(final Camera camera, final RacerDisplay display, final Sunlight sun,
 			final Vector4f color) {
-		final Matrix4f MV = display.getPerspectiveViewModel(70).mul(camera.getModelMatrix());
+		Matrix4f MV = display.getPerspectiveViewModel(100).mul(camera.getModelMatrix());
 		setModelMatrix();
-		final Matrix4f P = getModelMatrix();
+		Matrix4f P = getModelMatrix();
 
 		getShader().setUniformMat4f("u_MV", MV);
 		getShader().setUniformMat4f("u_P", P);
@@ -95,6 +99,38 @@ public abstract class Car extends PhysicsEntity {
 
 		getShader().setMainTexture(carTexture);
 		getShader().setUniform4f("u_carColor", color);
+	}
+
+	public abstract void setCameraLocal(Camera camera);
+
+	@Override
+	public void processKeyReleasedEvent(KeyReleaseEvent event) {
+
+	}
+
+	@Override
+	public void processKeyHeldEvent(KeyHoldEvent event) {
+
+	}
+
+	@Override
+	public void processKeyPressedEvent(KeyPressEvent event) {
+		if (event.key == Key.W) {
+			this.accelerateLocalXZ(new Vector2f(0.01f, 0));
+			System.out.println(positionVector);
+		} else if (event.key == Key.S) {
+			this.accelerateLocalXZ(new Vector2f(-0.01f, 0));
+			System.out.println(positionVector);
+		}
+	}
+
+	@Override
+	public boolean isActive() {
+		return true;
+	}
+
+	@Override
+	public void setActive(boolean active) {
 	}
 
 }

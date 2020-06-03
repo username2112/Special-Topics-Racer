@@ -15,13 +15,13 @@ public class Level1 extends Level {
 				.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level1/track.obj"))),
 				new Texture("./assets/com/specialtopics/racer/level/level1/Track.png"), new LevelShader());
 
-		this.positionVector = new Vector3f(0, 100, 0);
+		this.positionVector = new Vector3f(0, 0, 0);
 		this.setModelMatrix();
 	}
 
 	@Override
 	public void update(float delta) {
-
+		this.positionVector.add(new Vector3f(0));
 	}
 
 }
