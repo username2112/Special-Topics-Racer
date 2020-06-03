@@ -27,8 +27,8 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 	private Vector4f carColor;
 	private Texture carTexture;
 
-	public Car(final Vector3f position, final Vector3f rotation, final Vector3f scale, final float weight,
-			final Mesh carMesh, final CarShader shader, final Vector4f carColor, final Texture carTexture) {
+	public Car(Vector3f position, Vector3f rotation, Vector3f scale, float weight, Mesh carMesh, CarShader shader,
+			Vector4f carColor, Texture carTexture) {
 		super(position, rotation, scale, weight);
 		this.carMesh = carMesh;
 		this.shader = shader;
@@ -41,7 +41,7 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 	double val = 0;
 
 	@Override
-	public void update(final float delta) {
+	public void update(float delta) {
 		carColor = new Vector4f((float) Color.hsb(val, 1, 1).getRed(), (float) Color.hsb(val, 1, 1).getGreen(),
 				(float) Color.hsb(val, 1, 1).getBlue(), 1);
 
@@ -50,7 +50,7 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 		rotationVector = rotationVector.rotateY((float) val / 10);
 	}
 
-	public void render(final Renderer renderer, final Camera camera, final RacerDisplay display, final Sunlight sun) {
+	public void render(Renderer renderer, Camera camera, RacerDisplay display, Sunlight sun) {
 		prepareShader(camera, display, sun, carColor);
 		carMesh.render(renderer, shader);
 	}
@@ -59,7 +59,7 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 		return carMesh;
 	}
 
-	public void setCarMesh(final Mesh carMesh) {
+	public void setCarMesh(Mesh carMesh) {
 		this.carMesh = carMesh;
 	}
 
@@ -67,7 +67,7 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 		return shader;
 	}
 
-	public void setShader(final CarShader shader) {
+	public void setShader(CarShader shader) {
 		this.shader = shader;
 	}
 
@@ -75,7 +75,7 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 		return carColor;
 	}
 
-	public void setCarColor(final Vector4f carColor) {
+	public void setCarColor(Vector4f carColor) {
 		this.carColor = carColor;
 	}
 
@@ -83,12 +83,11 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 		return carTexture;
 	}
 
-	public void setCarTexture(final Texture carTexture) {
+	public void setCarTexture(Texture carTexture) {
 		this.carTexture = carTexture;
 	}
 
-	public void prepareShader(final Camera camera, final RacerDisplay display, final Sunlight sun,
-			final Vector4f color) {
+	public void prepareShader(Camera camera, RacerDisplay display, Sunlight sun, Vector4f color) {
 		Matrix4f MV = display.getPerspectiveViewModel(100).mul(camera.getModelMatrix());
 		setModelMatrix();
 		Matrix4f P = getModelMatrix();

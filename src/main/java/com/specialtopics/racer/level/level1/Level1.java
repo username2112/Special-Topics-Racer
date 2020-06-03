@@ -18,10 +18,4 @@ public class Level1 extends Level {
 		this.positionVector = new Vector3f(0, 0, 0);
 		this.setModelMatrix();
 	}
-
-	@Override
-	public void update(float delta) {
-		this.positionVector.add(new Vector3f(0));
-	}
-
 }

@@ -18,20 +18,14 @@ public class RacerDisplay extends Display {
 
 	public RacerDisplay() {
 		super(1280, 720, "Space Racer");
-		this.addToListeners();
-		setCullFace(CullFace.FRONT);
 	}
 
 	@Override
 	public void processKeyPressedEvent(KeyPressEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void processKeyHeldEvent(KeyHoldEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -43,38 +37,26 @@ public class RacerDisplay extends Display {
 
 	@Override
 	public void processMouseScrolledEvent(MouseScrollEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void processMousePressEvent(MousePressEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void processMouseReleasedEvent(MouseReleaseEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void processMousePositionEvent(MousePositionEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void processMouseLeaveEvent(MouseLeaveEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void processMouseEnterEvent(MouseEnterEvent event) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
