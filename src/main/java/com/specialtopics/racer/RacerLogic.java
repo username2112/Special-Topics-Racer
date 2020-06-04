@@ -27,7 +27,9 @@ public class RacerLogic implements GameLogic<RacerInfo> {
 
 		info.getCurrentLevel().update(updateTime);
 
-		System.out.printf("Current Speed: %.2fm/s\n", info.getPlayerCar().getVelocityVector().length());
+		System.out.println(info.getCurrentLevel().getPosition());
+
+//		System.out.printf("Current Speed: %.2fm/s\n", info.getPlayerCar().getVelocityVector().length());
 	}
 
 	@Override

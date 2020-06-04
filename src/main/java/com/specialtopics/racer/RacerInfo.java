@@ -31,7 +31,7 @@ public class RacerInfo implements GameInfo {
 	 */
 	public RacerInfo() {
 		camera = new Camera(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
-		camera.setViewController(new CameraViewController());
+		camera.setViewController(new CameraViewController(0.05f));
 		sun = new Sunlight(new Vector3f(0, -1, 0), new Vector4f(1, 1, 1, 1));
 		setStartTime(0);
 	}

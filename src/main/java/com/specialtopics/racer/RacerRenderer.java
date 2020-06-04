@@ -46,9 +46,9 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 	public void render(float renderTime) {
 		info.getRacerDisplay().clear();
 
-//		info.getCurrentLevel().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
+		info.getCurrentLevel().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
 
-		info.getPlayerCar().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
+//		info.getPlayerCar().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
 
 		info.getRacerDisplay().render();
 		if (info.getRacerDisplay().shouldClose())
