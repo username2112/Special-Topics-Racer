@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <eclipse-userlibraries version="2">
     <library name="lwjgl" systemlibrary="false">
-        <archive javadoc="jar:file:/C:/LWJGL/joml-1.9.20-javadoc.jar!/" path="C:/LWJGL/joml-1.9.20.jar" source="C:/LWJGL/joml-1.9.20-sources.jar"/>
+        <archive javadoc="jar:file:/C:/LWJGL/joml-1.9.25-javadoc.jar!/" path="C:/LWJGL/joml-1.9.25.jar" source="C:/LWJGL/joml-1.9.25-sources.jar"/>
         <archive javadoc="jar:file:/C:/LWJGL/lwjgl-javadoc.jar!/" path="C:/LWJGL/lwjgl.jar" source="C:/LWJGL/lwjgl-sources.jar"/>
         <archive javadoc="jar:file:/C:/LWJGL/lwjgl-glfw-javadoc.jar!/" path="C:/LWJGL/lwjgl-glfw.jar" source="C:/LWJGL/lwjgl-glfw-sources.jar"/>
         <archive javadoc="jar:file:/C:/LWJGL/lwjgl-assimp-javadoc.jar!/" path="C:/LWJGL/lwjgl-assimp.jar" source="C:/LWJGL/lwjgl-assimp-sources.jar"/>
