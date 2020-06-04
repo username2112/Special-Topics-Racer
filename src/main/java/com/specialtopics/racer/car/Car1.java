@@ -19,7 +19,7 @@ public class Car1 extends Car {
 
 	@Override
 	public void setCameraLocal(Camera camera) {
-		camera.getPosition().set(this.getPosition()).add(new Vector3f(10, 4f, 2));
+		camera.getPosition().set(this.getPosition()).add(new Vector3f(9.5f, 4f, 3f));
 	}
 
 }

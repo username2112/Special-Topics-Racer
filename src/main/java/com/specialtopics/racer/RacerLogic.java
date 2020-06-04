@@ -24,6 +24,10 @@ public class RacerLogic implements GameLogic<RacerInfo> {
 
 		info.getPlayerCar().tick(updateTime);
 		info.getPlayerCar().setCameraLocal(info.getCamera());
+
+		info.getCurrentLevel().update(updateTime);
+
+		System.out.printf("Current Speed: %.2fm/s\n", info.getPlayerCar().getVelocityVector().length());
 	}
 
 	@Override

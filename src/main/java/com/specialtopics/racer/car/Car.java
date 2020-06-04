@@ -88,7 +88,7 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 	}
 
 	public void prepareShader(Camera camera, RacerDisplay display, Sunlight sun, Vector4f color) {
-		Matrix4f MV = display.getPerspectiveViewModel(100).mul(camera.getModelMatrix());
+		Matrix4f MV = display.getPerspectiveViewModel(70).mul(camera.getModelMatrix());
 		setModelMatrix();
 		Matrix4f P = getModelMatrix();
 
@@ -115,10 +115,10 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 	@Override
 	public void processKeyPressedEvent(KeyPressEvent event) {
 		if (event.key == Key.W) {
-			this.accelerateLocalXZ(new Vector2f(0.01f, 0));
+			this.accelerateLocalXZ(new Vector2f(1f, 0));
 			System.out.println(positionVector);
 		} else if (event.key == Key.S) {
-			this.accelerateLocalXZ(new Vector2f(-0.01f, 0));
+			this.accelerateLocalXZ(new Vector2f(-1f, 0));
 			System.out.println(positionVector);
 		}
 	}
