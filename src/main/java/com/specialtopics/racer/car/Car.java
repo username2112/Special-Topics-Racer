@@ -42,10 +42,10 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 		this.drag(0.3f, 0.3f, 0.3f);
 
 		if (KeyStatus.isKeyDown(Key.LEFT)) {
-			this.rotationVector.add(new Vector3f(0, 0, -0.1f));
+			this.rotationVector.add(new Vector3f(0, -0.1f, 0));
 			this.velocityVector.rotateY(-0.1f);
 		} else if (KeyStatus.isKeyDown(Key.RIGHT)) {
-			this.rotationVector.add(new Vector3f(0, 0, 0.1f));
+			this.rotationVector.add(new Vector3f(0, 0.1f, 0));
 			this.velocityVector.rotateY(0.1f);
 		}
 
@@ -56,6 +56,8 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 			this.accelerateLocalXZ(new Vector2f(0, -1f));
 			System.out.println(positionVector);
 		}
+
+		System.out.println(rotationVector.y);
 	}
 
 	public void render(Renderer renderer, Camera camera, RacerDisplay display, Sunlight sun) {
