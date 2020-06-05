@@ -30,8 +30,8 @@ public class RacerInfo implements GameInfo {
 	 * Initialize objects that do *not* require a GLFW/OpenGL/OpenAL context here.
 	 */
 	public RacerInfo() {
-		camera = new Camera(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0));
-		camera.setViewController(new CameraViewController(0.05f));
+		camera = new Camera(new Vector3f(0, 0, 0), new Vector3f(0, (float) (Math.PI / 2), 0));
+		camera.setViewController(new CameraViewController(0.1f));
 		sun = new Sunlight(new Vector3f(0, -1, 0), new Vector4f(1, 1, 1, 1));
 		setStartTime(0);
 	}

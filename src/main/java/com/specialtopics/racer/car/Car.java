@@ -10,6 +10,7 @@ import com.oroarmor.core.game.entity.physics.PhysicsEntity;
 import com.oroarmor.core.game.light.Sunlight;
 import com.oroarmor.core.glfw.event.key.Key;
 import com.oroarmor.core.glfw.event.key.KeyEventListener;
+import com.oroarmor.core.glfw.event.key.KeyStatus;
 import com.oroarmor.core.glfw.event.key.hold.KeyHoldEvent;
 import com.oroarmor.core.glfw.event.key.press.KeyPressEvent;
 import com.oroarmor.core.glfw.event.key.release.KeyReleaseEvent;
@@ -17,8 +18,6 @@ import com.oroarmor.core.opengl.Mesh;
 import com.oroarmor.core.opengl.Renderer;
 import com.oroarmor.core.opengl.Texture;
 import com.specialtopics.racer.graphics.RacerDisplay;
-
-import javafx.scene.paint.Color;
 
 public abstract class Car extends PhysicsEntity implements KeyEventListener {
 
@@ -38,16 +37,25 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 		this.addToKeyListeners();
 	}
 
-	double val = 0;
-
 	@Override
 	public void update(float delta) {
-		carColor = new Vector4f((float) Color.hsb(val, 1, 1).getRed(), (float) Color.hsb(val, 1, 1).getGreen(),
-				(float) Color.hsb(val, 1, 1).getBlue(), 1);
+		this.drag(0.3f, 0.3f, 0.3f);
 
-		val += 0.005;
+		if (KeyStatus.isKeyDown(Key.LEFT)) {
+			this.rotationVector.add(new Vector3f(0, 0, -0.1f));
+			this.velocityVector.rotateY(-0.1f);
+		} else if (KeyStatus.isKeyDown(Key.RIGHT)) {
+			this.rotationVector.add(new Vector3f(0, 0, 0.1f));
+			this.velocityVector.rotateY(0.1f);
+		}
 
-		rotationVector = rotationVector.rotateY((float) val / 10);
+		if (KeyStatus.isKeyDown(Key.W)) {
+			this.accelerateLocalXZ(new Vector2f(0, 1f));
+			System.out.println(positionVector);
+		} else if (KeyStatus.isKeyDown(Key.S)) {
+			this.accelerateLocalXZ(new Vector2f(0, -1f));
+			System.out.println(positionVector);
+		}
 	}
 
 	public void render(Renderer renderer, Camera camera, RacerDisplay display, Sunlight sun) {
@@ -114,13 +122,7 @@ public abstract class Car extends PhysicsEntity implements KeyEventListener {
 
 	@Override
 	public void processKeyPressedEvent(KeyPressEvent event) {
-		if (event.key == Key.W) {
-			this.accelerateLocalXZ(new Vector2f(1f, 0));
-			System.out.println(positionVector);
-		} else if (event.key == Key.S) {
-			this.accelerateLocalXZ(new Vector2f(-1f, 0));
-			System.out.println(positionVector);
-		}
+
 	}
 
 	@Override
