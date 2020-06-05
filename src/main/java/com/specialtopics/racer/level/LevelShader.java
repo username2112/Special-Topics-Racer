@@ -13,16 +13,16 @@ public class LevelShader extends Shader {
 						.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level_vertex.vs")),
 				ResourceLoader
 						.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level_fragment.fs")));
-		this.compile();
+		compile();
 	}
 
 	public void setSun(Sunlight sun) {
-		this.setUniform3f("u_lightDir", sun.getDirection());
+		setUniform3f("u_lightDir", sun.getDirection());
 	}
 
 	public void setMainTexture(Texture texture) {
 		texture.bind(1);
-		this.bind();
-		this.setUniform1i("u_Texture", 1);
+		bind();
+		setUniform1i("u_Texture", 1);
 	}
 }

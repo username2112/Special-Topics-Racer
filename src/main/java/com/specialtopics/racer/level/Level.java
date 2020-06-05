@@ -48,14 +48,14 @@ public abstract class Level extends Entity {
 	}
 
 	public void render(Renderer renderer, Camera camera, RacerDisplay display, Sunlight sun) {
-		this.prepareShader(camera, display, sun);
+		prepareShader(camera, display, sun);
 		levelMesh.render(renderer, shader);
 	}
 
 	private void prepareShader(Camera camera, RacerDisplay display, Sunlight sun) {
 		Matrix4f MV = display.getPerspectiveViewModel(70).mul(camera.getModelMatrix());
-		this.setModelMatrix();
-		Matrix4f P = this.getModelMatrix();
+		setModelMatrix();
+		Matrix4f P = getModelMatrix();
 
 		shader.setUniformMat4f("u_MV", MV);
 		shader.setUniformMat4f("u_P", P);
@@ -66,7 +66,7 @@ public abstract class Level extends Entity {
 
 	@Override
 	public void update(float delta) {
-		this.positionVector.add(new Vector3f(0));
+		positionVector.add(new Vector3f(0));
 	}
 
 }

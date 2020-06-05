@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.oroarmor.core.game.event.Active;
 
 public interface GameCloseEventListener extends Active {
-	public static ArrayList<GameCloseEventListener> gameCloseListeners = new ArrayList<GameCloseEventListener>();
+	public static ArrayList<GameCloseEventListener> gameCloseListeners = new ArrayList<>();
 
 	public static void addGameCloseListener(GameCloseEventListener listener) {
 		gameCloseListeners.add(listener);

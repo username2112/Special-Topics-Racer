@@ -14,7 +14,7 @@ public class RacerLogic implements GameLogic<RacerInfo> {
 	public void initialize() {
 
 		while (info.getPlayerCar() == null) {
-			;
+			
 		}
 	}
 

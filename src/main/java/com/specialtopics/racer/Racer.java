@@ -8,7 +8,7 @@ public class Racer extends Game<RacerInfo> implements GameCloseEventListener {
 	public Racer() {
 		super(new RacerRenderer(getInfo()), new RacerLogic(getInfo()));
 
-		this.addToGameCloseListeners();
+		addToGameCloseListeners();
 	}
 
 	private static RacerInfo info;
@@ -29,31 +29,31 @@ public class Racer extends Game<RacerInfo> implements GameCloseEventListener {
 
 	@Override
 	public void setActive(boolean active) {
-		this.running = active;
+		running = active;
 	}
 
 	@Override
 	public void processGameCloseEvent(GameCloseEvent event) {
-		this.setActive(false);
+		setActive(false);
 	}
 
 	@Override
 	public Game<RacerInfo> run() {
-		this.getGameGraphics().initialize();
-		this.getGameLogic().initialize();
+		getGameGraphics().initialize();
+		getGameLogic().initialize();
 
 		long frameStart = System.currentTimeMillis();
 		long frameTime = 1; // should prevent errors if dividing by time
 		while (running) {
-			this.getGameLogic().tick(frameTime / 1000f);
-			this.getGameGraphics().render(frameTime / 1000f);
+			getGameLogic().tick(frameTime / 1000f);
+			getGameGraphics().render(frameTime / 1000f);
 
 			frameTime = System.currentTimeMillis() - frameStart;
 			frameStart = System.currentTimeMillis();
 		}
 
-		this.getGameGraphics().deinitialize();
-		this.getGameLogic().deinitialize();
+		getGameGraphics().deinitialize();
+		getGameLogic().deinitialize();
 
 		return this;
 	}

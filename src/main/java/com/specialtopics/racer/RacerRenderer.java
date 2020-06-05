@@ -51,8 +51,9 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 //		info.getPlayerCar().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
 
 		info.getRacerDisplay().render();
-		if (info.getRacerDisplay().shouldClose())
+		if (info.getRacerDisplay().shouldClose()) {
 			GameCloseEventListener.processAllGameCloseEvent(new GameCloseEvent());
+		}
 	}
 
 	@Override

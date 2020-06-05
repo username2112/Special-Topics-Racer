@@ -15,7 +15,7 @@ public class Level1 extends Level {
 				.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level1/track.obj"))),
 				new Texture("./assets/com/specialtopics/racer/level/level1/Track.png"), new LevelShader());
 
-		this.positionVector = new Vector3f(0, 0, 0);
-		this.setModelMatrix();
+		positionVector = new Vector3f(0, 0, 0);
+		setModelMatrix();
 	}
 }
