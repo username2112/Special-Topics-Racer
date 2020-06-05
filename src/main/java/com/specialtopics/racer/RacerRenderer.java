@@ -37,7 +37,7 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 		Level currentLevel = new Level1();
 		info.setCurrentLevel(currentLevel);
 
-		Car playerCar = new Car1(new Vector3f(0, 0, 0), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1), 10,
+		Car playerCar = new Car1(new Vector3f(200f, 0, 200f), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1), 10,
 				new Vector4f(1, 0, 0, 1));
 		info.setPlayerCar(playerCar);
 	}
