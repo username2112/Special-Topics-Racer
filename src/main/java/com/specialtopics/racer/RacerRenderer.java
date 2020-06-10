@@ -1,13 +1,11 @@
 package com.specialtopics.racer;
 
 import org.joml.Vector3f;
-import org.joml.Vector4f;
 
 import com.oroarmor.core.game.GameRenderer;
 import com.oroarmor.core.game.gui.shader.GUIShaders;
 import com.oroarmor.core.opengl.Renderer;
 import com.specialtopics.racer.car.Car;
-import com.specialtopics.racer.car.Car1;
 import com.specialtopics.racer.event.gameclose.GameCloseEvent;
 import com.specialtopics.racer.event.gameclose.GameCloseEventListener;
 import com.specialtopics.racer.graphics.RacerDisplay;
@@ -39,8 +37,7 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 		Level currentLevel = new Level1();
 		info.setCurrentLevel(currentLevel);
 
-		Car playerCar = new Car1(new Vector3f(200f, 0, 200f), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1), 10,
-				new Vector4f(1, 0, 0, 1));
+		Car playerCar = new Car(new Vector3f(200f, 0, 200f), new Vector3f(0, 0, 0), new Vector3f(1, 1, 1), 10);
 		info.setPlayerCar(playerCar);
 
 		RacerGUI gui = new RacerGUI(racerDisplay);
@@ -52,14 +49,12 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 		info.getRacerDisplay().clear();
 
 		if (info.isStarted()) {
-
 			info.getCurrentLevel().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(),
 					info.getSun());
 		} else {
 			GUIShaders.updateShaderView(info.getRacerDisplay().getOrthoViewModel());
 			info.getGUI().render(info.getRacerRenderer());
 		}
-//		info.getPlayerCar().render(info.getRacerRenderer(), info.getCamera(), info.getRacerDisplay(), info.getSun());
 
 		info.getRacerDisplay().render();
 		if (info.getRacerDisplay().shouldClose()) {
