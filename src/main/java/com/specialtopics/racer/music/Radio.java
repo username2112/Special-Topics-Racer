@@ -10,7 +10,7 @@ import com.oroarmor.core.openal.AudioSource;
 
 public class Radio extends AudioSource implements KeyPressEventListener {
 
-	public static String[] songs = new String[] { "Zipline", "Night Race" };
+	public static String[] songs = new String[] { "Zipline", "Night Race", "better", "decent", "meh", "neat", "Nice" };
 	private int volume = 5;
 
 	private int currentSong = -1;
@@ -32,6 +32,7 @@ public class Radio extends AudioSource implements KeyPressEventListener {
 			nextSong = new Random().nextInt(songs.length);
 		} while (nextSong == currentSong);
 
+		System.out.println("Now playing: " + songs[nextSong]);
 		playSound(AudioMaster.getSound(songs[nextSong]));
 		currentSong = nextSong;
 	}
