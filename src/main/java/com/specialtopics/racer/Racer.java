@@ -39,6 +39,10 @@ public class Racer extends Game<RacerInfo> implements GameCloseEventListener {
 
 	@Override
 	public Game<RacerInfo> run() {
+		
+		//Ok this is completely scuffed but it's the best I can do with what I have
+		Menu.initMenu().end();
+		
 		getGameGraphics().initialize();
 		getGameLogic().initialize();
 
