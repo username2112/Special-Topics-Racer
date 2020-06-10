@@ -21,8 +21,8 @@ public class Radio extends AudioSource implements KeyPressEventListener {
 			AudioMaster.loadSound("./assets/com/specialtopics/racer/music/" + song + ".ogg", song);
 		}
 
-		this.addToKeyPressListeners();
-		this.setGain(volume / 100f);
+		addToKeyPressListeners();
+		setGain(volume / 100f);
 	}
 
 	public void playSound() {
@@ -44,14 +44,14 @@ public class Radio extends AudioSource implements KeyPressEventListener {
 		} else if (event.key == Key.MINUS) {
 			volume--;
 		} else if (event.key == Key.RIGHT_BRACKET) {
-			this.stop();
+			stop();
 			this.playSound();
 			return;
 		}
 
 		volume = Math.max(0, Math.min(volume, 10));
 
-		this.setGain(volume / 100f);
+		setGain(volume / 100f);
 		System.out.println("Volume: " + volume);
 
 	}

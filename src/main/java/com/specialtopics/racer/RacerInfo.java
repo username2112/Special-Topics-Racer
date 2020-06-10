@@ -104,15 +104,15 @@ public class RacerInfo implements GameInfo {
 	}
 
 	public RacerGUI getGUI() {
-		return this.gui;
+		return gui;
 	}
 
 	public boolean isStarted() {
-		return this.started;
+		return started;
 	}
 
 	public void startGame() {
-		this.started = true;
+		started = true;
 	}
 
 	public void setRadio(Radio radio) {

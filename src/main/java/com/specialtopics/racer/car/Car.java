@@ -42,7 +42,7 @@ public class Car extends PhysicsEntity implements KeyEventListener {
 
 	public void setCameraLocal(Camera camera) {
 		camera.getPosition().set(getPosition()).add(new Vector3f(9.5f, 10f, 3f));
-		camera.getRotation().set(this.rotationVector.negate(new Vector3f()));
+		camera.getRotation().set(rotationVector.negate(new Vector3f()));
 	}
 
 	@Override
