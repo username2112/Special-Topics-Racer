@@ -10,6 +10,7 @@ import com.oroarmor.core.game.light.Sunlight;
 import com.oroarmor.core.opengl.Renderer;
 import com.specialtopics.racer.car.Car;
 import com.specialtopics.racer.graphics.RacerDisplay;
+import com.specialtopics.racer.gui.RacerGUI;
 import com.specialtopics.racer.level.Level;
 
 public class RacerInfo implements GameInfo {
@@ -25,6 +26,8 @@ public class RacerInfo implements GameInfo {
 	private Car playerCar;
 
 	private long startTime;
+	private RacerGUI gui;
+	private boolean started = false;
 
 	/**
 	 * Initialize objects that do *not* require a GLFW/OpenGL/OpenAL context here.
@@ -94,6 +97,22 @@ public class RacerInfo implements GameInfo {
 
 	public synchronized void initalizeTimer() {
 		startTime = System.currentTimeMillis();
+	}
+
+	public void setGUI(RacerGUI gui) {
+		this.gui = gui;
+	}
+
+	public RacerGUI getGUI() {
+		return this.gui;
+	}
+
+	public boolean isStarted() {
+		return this.started;
+	}
+
+	public void startGame() {
+		this.started = true;
 	}
 
 }
