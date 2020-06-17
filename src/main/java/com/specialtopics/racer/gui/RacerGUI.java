@@ -1,7 +1,5 @@
 package com.specialtopics.racer.gui;
 
-import java.awt.event.KeyEvent;
-
 import org.joml.Vector4f;
 
 import com.oroarmor.core.game.gui.GUICallback;
@@ -21,8 +19,6 @@ import com.specialtopics.racer.graphics.RacerDisplay;
 public class RacerGUI extends GUIGroup {
 
 	private static RacerGUI instance;
-	private boolean paused = false;
-	private int pausedn = 1;
 
 	public RacerGUI(RacerDisplay display) {
 		super(0, 0);
@@ -174,6 +170,5 @@ public class RacerGUI extends GUIGroup {
 	public void render(Renderer renderer) {
 		children.forEach(c -> c.render(renderer));
 	}
-	
 
 }
