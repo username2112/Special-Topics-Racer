@@ -27,18 +27,18 @@ public class RacerGUI extends GUIGroup {
 
 	public void initalize(RacerDisplay display) {
 
-		// Create a renderer
-
-		// Does Something idk Eli added it so we probably need it
-
-		// ----menuBoxs content----\\
+		// ----Menu Content----\\
 
 		// Title info
-		int titleWidth = 749, titleHeight = 216;
+		int titleWidth = 750, titleHeight = 220;
 		int titleX = (display.getWidth() - titleWidth) / 2, titleY = 50;
 
 		final TexturedGUIBox title = new TexturedGUIBox(titleX, titleY, titleWidth, titleHeight,
 				new Texture("./assets/com/specialtopics/racer/menu/Capture.PNG"));
+		
+		//background
+		final TexturedGUIBox background = new TexturedGUIBox(0, 0, display.getWidth(), display.getHeight(),
+				new Texture("./assets/com/specialtopics/racer/menu/hyNnT0.jpg"));
 
 		// Box info
 		float buttonWidth = 250, buttonHeight = 100;
@@ -55,7 +55,7 @@ public class RacerGUI extends GUIGroup {
 			public void onHover() {
 				mainBox.setCurrentColorAsOriginal();
 				mainBox.triggerAnimation(new ColorTransition(200L, Easing.EaseInOutSin,
-						new Vector4f(buttonColor.x + 0.1f, buttonColor.y + 0.1f, buttonColor.z + 0.1f, buttonColor.w)));
+						new Vector4f(1, 1, 1, buttonColor.w)));
 				mainBox.triggerAnimation(new ScaleAnimation<GUIColorBox>(200L, Easing.EaseInOutSin, 0.025f));
 			}
 
@@ -77,9 +77,52 @@ public class RacerGUI extends GUIGroup {
 				Racer.getInfo().startGame();
 			}
 		});
+		
+		float cbuttonWidth = 250, cbuttonHeight = 100;
+		float cbuttonX = (display.getWidth() - cbuttonWidth) / 2, cbuttonY = ((display.getHeight() + cbuttonHeight) / 2) + buttonHeight + 50;
+		Vector4f cbuttonColor = new Vector4f(0.7f, 0.7f, 0.7f, 10);
 
+		final GUIColorBox creditBox = new GUIColorBox(cbuttonX, cbuttonY, cbuttonWidth, cbuttonHeight, cbuttonColor);
+		
+		//Credits button
+		creditBox.setActive(true);
+		creditBox.setCallback(new GUICallback() {
+			@Override
+			// starts hover animation
+			public void onHover() {
+				creditBox.setCurrentColorAsOriginal();
+				creditBox.triggerAnimation(new ColorTransition(200L, Easing.EaseInOutSin,
+						new Vector4f(1, 1, 1, cbuttonColor.w)));
+				creditBox.triggerAnimation(new ScaleAnimation<GUIColorBox>(200L, Easing.EaseInOutSin, 0.025f));
+			}
+
+			@Override
+			// ends hover animation
+			public void onHoverStop() {
+				creditBox.setCurrentColorAsOriginal();
+				creditBox.triggerAnimation(new ColorTransition(200L, Easing.EaseInOutSin, cbuttonColor));
+				creditBox.triggerAnimation(new ScaleAnimation<GUIColorBox>(200L, Easing.EaseInOutSin, 0f));
+			}
+
+			@Override
+			// after release of mouse (so do thing)
+			public void onRelease(final MouseButton button, final boolean inBounds) {
+				if (!inBounds) {
+					return;
+				}
+				
+				//RacerGUI.getInstance().makeVisable(false);
+				//Racer.getInfo().startGame();
+			}
+		});
+		//button text
+		final TexturedGUIBox start = new TexturedGUIBox(buttonX, buttonY, buttonWidth, buttonHeight,
+				new Texture("./assets/com/specialtopics/racer/menu/captur.png"));
+		final TexturedGUIBox credit = new TexturedGUIBox(cbuttonX, cbuttonY, cbuttonWidth, cbuttonHeight,
+				new Texture("./assets/com/specialtopics/racer/menu/captu.png"));
+		
 		// adds title and button to GUI group
-		addChildren(mainBox, title);
+		addChildren(start, mainBox, credit, creditBox, title, background);
 
 		makeVisable(true);
 	}
