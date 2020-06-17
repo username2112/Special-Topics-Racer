@@ -28,17 +28,22 @@ public class RacerGUI extends GUIGroup {
 	public void initalize(RacerDisplay display) {
 
 		// ----Menu Content----\\
-
+		
+		/*Note:
+		 * The reason all the text is in Images instead of text
+		 * is because the library was having issues with text opposed to images
+		 */
+		
 		// Title info
 		int titleWidth = 750, titleHeight = 220;
 		int titleX = (display.getWidth() - titleWidth) / 2, titleY = 50;
 
 		final TexturedGUIBox title = new TexturedGUIBox(titleX, titleY, titleWidth, titleHeight,
-				new Texture("./assets/com/specialtopics/racer/menu/Capture.PNG"));
+				new Texture("./assets/com/specialtopics/racer/menu/title.PNG"));
 		
 		//background
 		final TexturedGUIBox background = new TexturedGUIBox(0, 0, display.getWidth(), display.getHeight(),
-				new Texture("./assets/com/specialtopics/racer/menu/hyNnT0.jpg"));
+				new Texture("./assets/com/specialtopics/racer/menu/background.jpg"));
 
 		// Box info
 		float buttonWidth = 250, buttonHeight = 100;
@@ -84,6 +89,9 @@ public class RacerGUI extends GUIGroup {
 
 		final GUIColorBox creditBox = new GUIColorBox(cbuttonX, cbuttonY, cbuttonWidth, cbuttonHeight, cbuttonColor);
 		
+		final TexturedGUIBox creditText = new TexturedGUIBox(buttonX + buttonWidth + 20, buttonY - buttonHeight, 350, 400,
+				new Texture("./assets/com/specialtopics/racer/menu/creditText.png"));
+		
 		//Credits button
 		creditBox.setActive(true);
 		creditBox.setCallback(new GUICallback() {
@@ -110,19 +118,17 @@ public class RacerGUI extends GUIGroup {
 				if (!inBounds) {
 					return;
 				}
-				
-				//RacerGUI.getInstance().makeVisable(false);
-				//Racer.getInfo().startGame();
+				addChildren(creditText);
 			}
 		});
 		//button text
 		final TexturedGUIBox start = new TexturedGUIBox(buttonX, buttonY, buttonWidth, buttonHeight,
-				new Texture("./assets/com/specialtopics/racer/menu/captur.png"));
+				new Texture("./assets/com/specialtopics/racer/menu/start.png"));
 		final TexturedGUIBox credit = new TexturedGUIBox(cbuttonX, cbuttonY, cbuttonWidth, cbuttonHeight,
-				new Texture("./assets/com/specialtopics/racer/menu/captu.png"));
+				new Texture("./assets/com/specialtopics/racer/menu/credits.png"));
 		
 		// adds title and button to GUI group
-		addChildren(start, mainBox, credit, creditBox, title, background);
+		addChildren(start, mainBox, credit, creditBox, title);
 
 		makeVisable(true);
 	}
