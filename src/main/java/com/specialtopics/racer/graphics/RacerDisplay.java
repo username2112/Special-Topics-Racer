@@ -13,6 +13,8 @@ import com.oroarmor.core.glfw.event.mouse.position.MousePositionEvent;
 import com.oroarmor.core.glfw.event.mouse.scroll.MouseScrollEvent;
 import com.specialtopics.racer.event.gameclose.GameCloseEvent;
 import com.specialtopics.racer.event.gameclose.GameCloseEventListener;
+import com.specialtopics.racer.event.gamepause.GamePauseEvent;
+import com.specialtopics.racer.event.gamepause.GamePauseEventListener;
 
 public class RacerDisplay extends Display {
 
@@ -32,6 +34,8 @@ public class RacerDisplay extends Display {
 	public void processKeyReleasedEvent(KeyReleaseEvent event) {
 		if (event.getKey() == Key.ESCAPE) {
 			GameCloseEventListener.processAllGameCloseEvent(new GameCloseEvent());
+		} else if(event.getKey() == Key.P) {
+			GamePauseEventListener.processAllGamePauseEvent(new GamePauseEvent());
 		}
 	}
 
