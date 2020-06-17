@@ -1,5 +1,6 @@
 package com.specialtopics.racer;
 
+import com.oroarmor.core.Destructor;
 import com.oroarmor.core.game.Game;
 import com.specialtopics.racer.event.gameclose.GameCloseEvent;
 import com.specialtopics.racer.event.gameclose.GameCloseEventListener;
@@ -54,6 +55,8 @@ public class Racer extends Game<RacerInfo> implements GameCloseEventListener {
 
 		getGameGraphics().deinitialize();
 		getGameLogic().deinitialize();
+
+		Destructor.destroyAll();
 
 		return this;
 	}

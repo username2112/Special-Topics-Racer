@@ -4,6 +4,7 @@ import org.joml.Vector3f;
 
 import com.oroarmor.core.game.GameRenderer;
 import com.oroarmor.core.game.gui.shader.GUIShaders;
+import com.oroarmor.core.openal.AudioMaster;
 import com.oroarmor.core.opengl.Renderer;
 import com.specialtopics.racer.car.Car;
 import com.specialtopics.racer.event.gameclose.GameCloseEvent;
@@ -12,6 +13,7 @@ import com.specialtopics.racer.graphics.RacerDisplay;
 import com.specialtopics.racer.gui.RacerGUI;
 import com.specialtopics.racer.level.Level;
 import com.specialtopics.racer.level.level1.Level1;
+import com.specialtopics.racer.music.Radio;
 
 public class RacerRenderer implements GameRenderer<RacerInfo> {
 
@@ -42,6 +44,11 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 
 		RacerGUI gui = new RacerGUI(racerDisplay);
 		info.setGUI(gui);
+
+		AudioMaster.initialize();
+
+		Radio radio = new Radio();
+		info.setRadio(radio);
 	}
 
 	@Override
@@ -54,6 +61,10 @@ public class RacerRenderer implements GameRenderer<RacerInfo> {
 		} else {
 			GUIShaders.updateShaderView(info.getRacerDisplay().getOrthoViewModel());
 			info.getGUI().render(info.getRacerRenderer());
+		}
+
+		if (info.getRadio().isFinished()) {
+			info.getRadio().playSound();
 		}
 
 		info.getRacerDisplay().render();

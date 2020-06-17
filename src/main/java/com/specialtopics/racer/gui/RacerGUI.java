@@ -79,9 +79,9 @@ public class RacerGUI extends GUIGroup {
 		});
 
 		// adds title and button to GUI group
-		this.addChildren(mainBox, title);
+		addChildren(mainBox, title);
 
-		this.makeVisable(true);
+		makeVisable(true);
 	}
 
 	public static RacerGUI getInstance() {
@@ -90,7 +90,7 @@ public class RacerGUI extends GUIGroup {
 
 	@Override
 	public void render(Renderer renderer) {
-		this.children.forEach(c -> c.render(renderer));
+		children.forEach(c -> c.render(renderer));
 	}
 
 }

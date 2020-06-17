@@ -11,6 +11,7 @@ import com.specialtopics.racer.car.Car;
 import com.specialtopics.racer.graphics.RacerDisplay;
 import com.specialtopics.racer.gui.RacerGUI;
 import com.specialtopics.racer.level.Level;
+import com.specialtopics.racer.music.Radio;
 
 public class RacerInfo implements GameInfo {
 
@@ -27,6 +28,7 @@ public class RacerInfo implements GameInfo {
 	private long startTime;
 	private RacerGUI gui;
 	private boolean started = false;
+	private Radio radio;
 
 	/**
 	 * Initialize objects that do *not* require a GLFW/OpenGL/OpenAL context here.
@@ -102,15 +104,23 @@ public class RacerInfo implements GameInfo {
 	}
 
 	public RacerGUI getGUI() {
-		return this.gui;
+		return gui;
 	}
 
 	public boolean isStarted() {
-		return this.started;
+		return started;
 	}
 
 	public void startGame() {
-		this.started = true;
+		started = true;
+	}
+
+	public void setRadio(Radio radio) {
+		this.radio = radio;
+	}
+
+	public Radio getRadio() {
+		return radio;
 	}
 
 }
