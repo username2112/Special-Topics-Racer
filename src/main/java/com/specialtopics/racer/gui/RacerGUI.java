@@ -139,7 +139,6 @@ public class RacerGUI extends GUIGroup {
 					return;
 				}
 				creditsGroup.makeVisable(creditsGroup.isVisable());
-				System.out.println(creditsGroup.isVisable());
 			}
 		});
 
