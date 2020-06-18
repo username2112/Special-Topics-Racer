@@ -36,11 +36,11 @@ public class RacerGUI extends GUIGroup {
 		 */
 
 		// Title info
-		int titleWidth = 750, titleHeight = 220;
-		int titleX = (display.getWidth() - titleWidth) / 2, titleY = 50;
+		int titleWidth = 600, titleHeight = 270;
+		int titleX = (display.getWidth() - titleWidth) / 2, titleY = 30;
 
 		final TexturedGUIBox title = new TexturedGUIBox(titleX, titleY, titleWidth, titleHeight,
-				new Texture("./assets/com/specialtopics/racer/menu/title.PNG"));
+				new Texture("./assets/com/specialtopics/racer/menu/title2.PNG"));
 
 		// background
 		final TexturedGUIBox background = new TexturedGUIBox(0, 0, display.getWidth(), display.getHeight(),
