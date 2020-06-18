@@ -47,6 +47,8 @@ public class Radio extends AudioSource implements KeyPressEventListener {
 			stop();
 			this.playSound();
 			return;
+		} else {
+			return;
 		}
 
 		volume = Math.max(0, Math.min(volume, 10));
