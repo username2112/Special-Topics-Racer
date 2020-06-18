@@ -22,7 +22,12 @@ public class GamePauseEvent implements Event {
 	public void setWindow(long window) {
 		this.window = window;
 	}
-
+			/*
+				   _
+				._(.)< (Quack)
+				 \__)
+			~~~~~~~~~~~~~~~~~~~
+			*/
 }
 
 
