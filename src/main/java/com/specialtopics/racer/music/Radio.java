@@ -18,7 +18,7 @@ public class Radio extends AudioSource implements KeyPressEventListener {
 	public Radio() {
 		super();
 		for (String song : songs) {
-			AudioMaster.loadSound("./assets/com/specialtopics/racer/music/" + song + ".ogg", song);
+			AudioMaster.loadSound("com/specialtopics/racer/music/" + song + ".ogg", song);
 		}
 
 		addToKeyPressListeners();
@@ -27,7 +27,7 @@ public class Radio extends AudioSource implements KeyPressEventListener {
 
 	public void playSound() {
 
-		int nextSong = -1;
+		int nextSong;
 		do {
 			nextSong = new Random().nextInt(songs.length);
 		} while (nextSong == currentSong);

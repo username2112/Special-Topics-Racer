@@ -10,9 +10,9 @@ public class LevelShader extends Shader {
 	public LevelShader() {
 		super(//
 				ResourceLoader
-						.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level_vertex.vs")),
+						.loadFileString(LevelShader.class.getClassLoader().getResourceAsStream("com/specialtopics/racer/level/level_vertex.vs")),
 				ResourceLoader
-						.loadFile(Class.class.getResourceAsStream("/com/specialtopics/racer/level/level_fragment.fs")));
+						.loadFileString(LevelShader.class.getClassLoader().getResourceAsStream("com/specialtopics/racer/level/level_fragment.fs")));
 		compile();
 	}
 
