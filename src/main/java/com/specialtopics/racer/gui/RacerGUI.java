@@ -39,11 +39,11 @@ public class RacerGUI extends GUIGroup {
         int titleX = (display.getWidth() - titleWidth) / 2, titleY = 30;
 
         final TexturedGUIBox title = new TexturedGUIBox(titleX, titleY, titleWidth, titleHeight,
-                new Texture("com/specialtopics/racer/menu/title2.PNG"));
+                new Texture("com/specialtopics/racer/menu/title2.png"));
 
         // background
         final TexturedGUIBox background = new TexturedGUIBox(0, 0, display.getWidth(), display.getHeight(),
-                new Texture("com/specialtopics/racer/menu/background.jpg")) {
+                new Texture("com/specialtopics/racer/menu/background.png")) {
             @Override
             public void render(Renderer renderer) {
                 boxMesh.render(renderer, GUIShaders.getTextureShader().setZ(-1).setTexture(this.getTexture())
@@ -143,7 +143,7 @@ public class RacerGUI extends GUIGroup {
 
         // button text
         final TexturedGUIBox start = new TexturedGUIBox(buttonX, buttonY, buttonWidth, buttonHeight,
-                new Texture("com/specialtopics/racer/menu/start.png")) {
+                new Texture("com/specialtopics/racer/menu/start.PNG")) {
             @Override
             public void render(Renderer renderer) {
                 boxMesh.render(renderer, GUIShaders.getTextureShader().setZ(0).setTexture(this.getTexture())

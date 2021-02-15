@@ -21,3 +21,13 @@ dependencies {
     compile(project(":LibraryForLWJGL"))
     implementation "org.joml:joml:${jomlVersion}"
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": (tasks.getByName("run") as JavaExec).getMain()
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
